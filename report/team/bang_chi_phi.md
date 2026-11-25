@@ -6,46 +6,50 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 | Phép thử (p = 0,8) | Kết quả của nhóm |
 | --- | --- |
-| Số lần chạy trung bình, tối đa 2 lần | ... |
-| Số lần chạy trung bình, chạy đến khi đúng | ... |
-| Hệ số chi phí mỗi việc thành công, tối đa 3 lần | ... |
+| Số lần chạy trung bình, tối đa 2 lần | 1.20 — ĐẠT |
+| Số lần chạy trung bình, chạy đến khi đúng | 1.25 — ĐẠT |
+| Hệ số chi phí mỗi việc thành công, tối đa 3 lần | 1.25 — ĐẠT |
 
 ## A2 · Mô hình chi phí từ trace
 
 | Khoản | Số tiền (đ) | Nguồn | Nhãn |
 | --- | ---: | --- | --- |
-| Token | ... | `logix_runs.csv` | đo từ trace |
-| Tool | ... | `logix_runs.csv` | đo từ trace |
-| Trong đó, phần của lần chạy thứ 2 và 3 | ... | attempt lớn hơn 1 | đo từ trace |
-| Xem lại | ... | `phut_xem_lai_simulated` | simulated |
-| Làm lại | ... | `phut_lam_lai_simulated` | simulated |
-| Tổng chi phí | ... | | |
-| Số việc thành công | ... | `ket_qua` | |
-| Chi phí mỗi việc thành công | ... | | |
-| Hoá đơn token và tool chia cho số yêu cầu | ... | | |
+| Token | 245.585,13 | `logix_runs.csv` | đo từ trace |
+| Tool | 84.000 | `logix_runs.csv` | đo từ trace |
+| Trong đó, phần của lần chạy thứ 2 và 3 | 93.804,49 | attempt lớn hơn 1 | đo từ trace |
+| Xem lại | 1.780.000 | `phut_xem_lai_simulated` | simulated |
+| Làm lại | 2.264.000 | `phut_lam_lai_simulated` | simulated |
+| Tổng chi phí | 4.373.585,13 | cộng bốn khoản | simulated |
+| Số việc thành công | 978 | `ket_qua` | |
+| Chi phí mỗi việc thành công | 4.471,97 | tổng / 978 | simulated |
+| Hoá đơn token và tool chia cho số yêu cầu | 274,65 | | |
 
-- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
-- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
+- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? 16,28 lần (simulated).
+- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? Làm lại chiếm 51,77% (simulated).
 
 ## A3 · Tách theo loại yêu cầu
 
+Cột chi phí và tỉ số chi phí đều simulated; chưa gồm nhân viên làm thay.
+
 | Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công | So với 12.000 đ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| noi_dia | ... | ... | ... | ... | ... |
-| hang_nang | ... | ... | ... | ... | ... |
-| quoc_te | ... | ... | ... | ... | ... |
-| doi_tac | ... | ... | ... | ... | ... |
+| noi_dia | 824 | 95,02% | 1,11 | 2.695,64 | 0,225× |
+| hang_nang | 158 | 74,05% | 1,47 | 8.220,73 | 0,685× |
+| quoc_te | 150 | 27,33% | 2,32 | 22.515,17 | 1,876× |
+| doi_tac | 68 | 54,41% | 1,88 | 10.214,87 | 0,851× |
 
-- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? ...
+- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? quoc_te tốn 1,876× baseline (simulated), chỉ 27,33% thành công; ok lần 1/2/3: 30%/11,43%/2,15%, không đáng chạy lại. doi_tac chỉ 54,41% thành công và có điều khoản riêng nên loại khỏi pilot.
 
 ## A4 · Chi phí cố định (phạm vi noi_dia + hang_nang)
 
+Chi phí và tỉ số đều simulated. Khối lượng tổng 45.000 nhân tỉ lệ 900/1.200 thành công trong phạm vi; không dùng 900/982 để ngoại suy toàn công ty.
+
 | Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định | So với 12.000 đ |
 | --- | ---: | ---: | ---: | ---: |
-| 45.000 yêu cầu/tháng | ... | ... | ... | ... |
-| Một nửa khối lượng | ... | ... | ... | ... |
+| 45.000 yêu cầu/tháng | 33.750 | 1.185,19 | 4.599,09 | 0,383× |
+| Một nửa khối lượng | 16.875 | 2.370,37 | 5.784,27 | 0,482× |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? ...
+- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? Chưa đổi ở 45.000 hoặc 22.500 yêu cầu/tháng; CPS lần lượt 4.599,09 và 5.784,27 đ (simulated).
 
 ## B1 · Đổi từng yếu tố
 
