@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: Hoàng Minh Diệp · Người gắn nhãn 2: Nguyễn Đức Mạnh. Ba dòng lệch dưới đây là các nhãn đề xuất để minh họa điểm nhập nhằng; hãy xác nhận với nhãn độc lập thực tế trước khi chốt.
+Người gắn nhãn 1: Hoàng Minh Diệp · Người gắn nhãn 2: Nguyễn Đức Mạnh. Hai bộ nhãn được thực hiện độc lập; ba trường hợp bất đồng đã được thảo luận và thống nhất ở cột cuối.
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
