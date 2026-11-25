@@ -13,10 +13,9 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Nguyễn Hoàng Gia An | 2A202603799 | 26ai.annhg@vinuni.edu.vn | AnK17-UIT | Người viết code |
-|   2 | Nguyễn Đức Mạnh | 2A202603731 | manhgu3110@gmail.com | nguyenducmanh-itus | Người gắn nhãn 2, kiêm giữ hồ sơ (vai #4) |
-|   3 | Vũ Quang Minh | 2A202603727 | vuquangminh240804@gmail.com | minh240804 | Người kiểm số |
-|   4 | Hoàng Minh Diệp | 2A202603764 | hoangminhdiepnd2004@gmail.com | diep142 | Người gắn nhãn 1 |
-
+|   2 | Vũ Quang Minh | 2A202603727 | vuquangminh240804@gmail.com | minh240804 | Người kiểm số |
+|   3 | Hoàng Minh Diệp | 2A202603764 | hoangminhdiepnd2004@gmail.com | diep142 | Người gắn nhãn 1 |
+|   4 | Nguyễn Đức Mạnh | 2A202603731 | manhgu3110@gmail.com | nguyenducmanh-itus | Người gắn nhãn 2, kiêm giữ hồ sơ|
 Bốn vai của lab:
 
 - **Người viết code:** viết và chạy `src/lab13.py`.
