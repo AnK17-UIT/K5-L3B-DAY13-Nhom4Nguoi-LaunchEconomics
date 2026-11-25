@@ -12,10 +12,10 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Nguyễn Hoàng Gia An | 2A202603799 | 26ai.annhg@vinuni.edu.vn | AnK17-UIT | Người viết code |
-|   2 | Nguyễn Đức Mạnh | 2A202603731 | manhgu3110@gmail.com | nguyenducmanh-itus | Người kiểm số |
-|   3 | Vũ Quang Minh | 2A202603727 | vuquangminh240804@gmail.com | minh240804 | Người gắn nhãn 1 |
-|   4 | Hoàng Minh Diệp | 2A202603764 | hoangminhdiepnd2004@gmail.com | diep142 | Người gắn nhãn 2, kiêm giữ hồ sơ (vai của bạn #4) |
+|   1 | Nguyễn Hoàng Gia An | 2A202603799 | 26ai.annhg@vinuni.edu.vn | AnK17-UIT | Chưa xác nhận |
+|   2 | Nguyễn Đức Mạnh | 2A202603731 | manhgu3110@gmail.com | nguyenducmanh-itus | Người gắn nhãn 2, kiêm giữ hồ sơ (vai #4) |
+|   3 | Vũ Quang Minh | 2A202603727 | vuquangminh240804@gmail.com | minh240804 | Chưa xác nhận |
+|   4 | Hoàng Minh Diệp | 2A202603764 | hoangminhdiepnd2004@gmail.com | diep142 | Chưa xác nhận |
 
 Bốn vai của lab:
 
