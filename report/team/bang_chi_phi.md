@@ -6,46 +6,46 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 | Phép thử (p = 0,8) | Kết quả của nhóm |
 | --- | --- |
-| Số lần chạy trung bình, tối đa 2 lần | ... |
-| Số lần chạy trung bình, chạy đến khi đúng | ... |
-| Hệ số chi phí mỗi việc thành công, tối đa 3 lần | ... |
+| Số lần chạy trung bình, tối đa 2 lần | 1,20 |
+| Số lần chạy trung bình, chạy đến khi đúng | 1,25 |
+| Hệ số chi phí mỗi việc thành công, tối đa 3 lần | 1,25 |
 
 ## A2 · Mô hình chi phí từ trace
 
 | Khoản | Số tiền (đ) | Nguồn | Nhãn |
 | --- | ---: | --- | --- |
-| Token | ... | `logix_runs.csv` | đo từ trace |
-| Tool | ... | `logix_runs.csv` | đo từ trace |
-| Trong đó, phần của lần chạy thứ 2 và 3 | ... | attempt lớn hơn 1 | đo từ trace |
-| Xem lại | ... | `phut_xem_lai_simulated` | simulated |
-| Làm lại | ... | `phut_lam_lai_simulated` | simulated |
-| Tổng chi phí | ... | | |
-| Số việc thành công | ... | `ket_qua` | |
-| Chi phí mỗi việc thành công | ... | | |
-| Hoá đơn token và tool chia cho số yêu cầu | ... | | |
+| Token | 245.585 | `logix_runs.csv` | đo từ trace |
+| Tool | 84.000 | `logix_runs.csv` | đo từ trace |
+| Trong đó, phần của lần chạy thứ 2 và 3 | 93.804 | attempt lớn hơn 1 | đo từ trace |
+| Xem lại | 1.780.000 | `phut_xem_lai_simulated` | simulated |
+| Làm lại | 2.264.000 | `phut_lam_lai_simulated` | simulated |
+| Tổng chi phí | 4.373.585 | | simulated |
+| Số việc thành công | 978 | `ket_qua` | đo từ trace |
+| Chi phí mỗi việc thành công | 4.472 | | simulated |
+| Hoá đơn token và tool chia cho số yêu cầu | 274,7 | | đo từ trace |
 
-- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
-- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
+- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? Gấp **16,3 lần** (4.472 đ / 274,7 đ, `simulated`). Khi cộng 222 ca không thành công (× 12.000 đ), chi phí cả hệ thống là **5.865 đ/yêu cầu = 0,49×** so với 12.000 đ (`simulated`).
+- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? **Làm lại** lớn nhất với **51,8%** (2.264.000 / 4.373.585 đ, `simulated`), tiếp theo là Xem lại 40,7% (`simulated`); tổng giờ nhân viên chiếm 92,5%.
 
 ## A3 · Tách theo loại yêu cầu
 
-| Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công | So với 12.000 đ |
+| Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công (`simulated`) | So với 12.000 đ (`simulated`) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| noi_dia | ... | ... | ... | ... | ... |
-| hang_nang | ... | ... | ... | ... | ... |
-| quoc_te | ... | ... | ... | ... | ... |
-| doi_tac | ... | ... | ... | ... | ... |
+| noi_dia | 824 | 95,0% | 1,11 | 2.696 đ (`simulated`) | 2.696 đ = 0,22× (`simulated`) |
+| hang_nang | 158 | 74,1% | 1,47 | 8.221 đ (`simulated`) | 8.221 đ = 0,69× (`simulated`) |
+| quoc_te | 150 | 27,3% | 2,32 | 22.515 đ (`simulated`) | 22.515 đ = 1,88× (`simulated`) |
+| doi_tac | 68 | 54,4% | 1,88 | 10.215 đ (`simulated`) | 10.215 đ = 0,85× (`simulated`) |
 
-- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? ...
+- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? `quoc_te` không đáng để trợ lý xử lý (22.515 đ = 1,88× so với 12.000 đ `simulated`, tỉ lệ thành công 27,3%). Cho chạy lại tới 3 lần không giúp vì tỉ lệ `ok` giảm dần từ 30,0% (lần 1) xuống 11,4% (lần 2) và 2,2% (lần 3), chỉ tốn thêm chi phí.
 
 ## A4 · Chi phí cố định (phạm vi noi_dia + hang_nang)
 
-| Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định | So với 12.000 đ |
+| Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định (`simulated`) | So với 12.000 đ (`simulated`) |
 | --- | ---: | ---: | ---: | ---: |
-| 45.000 yêu cầu/tháng | ... | ... | ... | ... |
-| Một nửa khối lượng | ... | ... | ... | ... |
+| 45.000 yêu cầu/tháng | 33.750 | 1.185 đ | 4.599 đ (`simulated`) | 4.599 đ = 0,38× (`simulated`) |
+| Một nửa khối lượng (22.500 yêu cầu/tháng) | 16.875 | 2.370 đ | 5.784 đ (`simulated`) | 5.784 đ = 0,48× (`simulated`) |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? ...
+- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? Không đổi kết luận ở cả hai mức khối lượng: đạt **4.599 đ = 0,38×** ở 45.000 yêu cầu/tháng và **5.784 đ = 0,48×** ở 22.500 yêu cầu/tháng (`simulated`), dù chi phí cố định mỗi việc tăng gấp đôi (1.185 đ → 2.370 đ) khi khối lượng giảm một nửa.
 
 ## B1 · Đổi từng yếu tố
 
