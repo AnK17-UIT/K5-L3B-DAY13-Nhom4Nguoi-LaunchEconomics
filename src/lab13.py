@@ -176,12 +176,18 @@ def co_mau(p1, p2, alpha=0.05, power=0.8):
 
 
 def bao_cao_d_e(runs, reqs):
-    from statsmodels.stats.proportion import proportion_effectsize
-    from statsmodels.stats.power import NormalIndPower
     n5, n6 = co_mau(.70, .75), co_mau(.70, .76)
     de75 = 1 + 74 * .02
     m = math.ceil(n6 * (1 - .02) / (20 - n6 * .02))
-    power5 = NormalIndPower().power(abs(proportion_effectsize(.70, .75)), nobs1=n6, alpha=.05)
+    try:
+        from statsmodels.stats.proportion import proportion_effectsize
+        from statsmodels.stats.power import NormalIndPower
+        power5 = NormalIndPower().power(abs(proportion_effectsize(.70, .75)), nobs1=n6, alpha=.05)
+    except ModuleNotFoundError:
+        h = abs(2 * (math.asin(math.sqrt(.75)) - math.asin(math.sqrt(.70))))
+        z_crit = NormalDist().inv_cdf(1 - .05 / 2)
+        z = h * math.sqrt(n6 / 2)
+        power5 = (1 - NormalDist().cdf(z_crit - z)) + NormalDist().cdf(-z_crit - z)
     print('\nD1 · a yêu cầu/nhánh:', n5)
     print(f'b: DE={de75:.2f}, cần {math.ceil(n5*de75)} yêu cầu/nhánh; '
           f'{math.ceil(n5*de75/75)} người/nhánh; tổng {2*math.ceil(n5*de75/75)} > 40')
