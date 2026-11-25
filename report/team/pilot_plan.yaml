@@ -50,6 +50,7 @@ pilot:
     accepted_tradeoff: "Với 40 nhân viên không đủ cho MDE 5 điểm; đề xuất MDE 6 điểm, power chỉ 0,6417 khi tác động thật 5 điểm; Giám đốc vận hành phải ký chấp nhận."
   identifiability:
     concurrent_control: "20 nhân viên đối chứng làm cùng thời gian và depot với 20 nhân viên can thiệp ở giai đoạn cuối."
+    randomization: "Bốc thăm bằng code với seed 20261125 ghi trước, phân tầng theo depot; không để quản lý hay nhân viên tự chọn nhóm."
     spillover_risk: "Có thể chia sẻ câu trả lời; giới hạn quyền theo tài khoản và ghi agent_workspace_opened ở cả hai arm; báo tỉ lệ đối chứng mở trợ lý."
     predeclared: "Khóa phạm vi, roster, seed, MDE, chỉ số, cửa sổ, luật dừng, kế hoạch phân tích và ngày quyết định trước ngày bắt đầu."
     minimum_clusters: "20 cụm staff mỗi nhánh; không chọn 6 cụm depot."
