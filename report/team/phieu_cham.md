@@ -47,4 +47,4 @@ Câu trả lời của nhóm mình:
 >
 > Khi chưa đủ dữ liệu mở lại 7 ngày, nhóm dùng duyệt trước, khóa chống trùng và đối soát sổ cái để chặn lỗi; chưa đủ bằng chứng thì chưa giảm xem lại hoặc tăng rollout.
 
-Việc cần cập nhật sau bảo vệ: tỉ lệ duyệt 100% ở bước 10%, ngân sách giai đoạn đầu và thời điểm áp dụng ngưỡng 8.000 đ trong pilot_plan.yaml. Đây là các bổ sung đã nêu trong câu trả lời, chưa coi là đã có trong YAML.
+Cập nhật sau bảo vệ ngày 25/11/2026: pilot_plan.yaml đã bổ sung duyệt 100% trước gửi khách hoặc hoàn tiền ở bước 10%, ngân sách đầu kỳ dự toán simulated và trần đề xuất cần ký trước chạy. Ngưỡng CPS 8.000 đ áp dụng từ bước 50%, trên hai tuần hoàn chỉnh liên tiếp của riêng bước này. Mọi luật an toàn vẫn áp dụng; chưa đủ bằng chứng thì chưa giảm duyệt hoặc tăng rollout. Đây là điều chỉnh sau phản biện, chưa phải ngân sách đã được phê duyệt.

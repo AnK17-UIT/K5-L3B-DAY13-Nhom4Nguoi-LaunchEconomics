@@ -15,8 +15,10 @@ Nhom4Nguoi · L3B · Dữ liệu chạy thử simulated; đề xuất pilot, ch�
 **Điều kiện trước pilot (hạn 27/11/2026):**
 
 - **Kỹ sư trưởng agent:** khóa chống trùng và đối soát sổ cái; kiểm thử không trùng, 27/11/2026.
-- **Giám đốc vận hành:** ký chấp nhận MDE/power tradeoff; PM khóa roster, seed, kế hoạch phân tích, 27/11/2026.
+- **Giám đốc vận hành:** ký chấp nhận MDE/power tradeoff và ngân sách đầu kỳ đề xuất 22/38 triệu đ cho bước 10%/25% (simulated, chưa được duyệt); PM khóa roster, seed, kế hoạch phân tích, 27/11/2026.
 - **Trưởng nhóm CSKH:** kiểm event/trace_id ở hai nhánh, 27/11/2026; đo phút thật sau tuần đầu, 07/12/2026.
 - **Người gắn nhãn 2, giữ hồ sơ:** lưu hai bộ nhãn, 3 bất đồng và bảng khắc phục; trưởng nhóm kiểm, 27/11/2026.
+
+Sau phản biện: bước 10% duyệt 100% trước gửi khách/hoàn tiền; chưa đủ dữ liệu an toàn thì giữ bước và mức duyệt. Ngưỡng CPS 8.000 đ chỉ áp dụng ở bước 50% qua 2 tuần hoàn chỉnh liên tiếp; đầu kỳ chịu ngân sách đã ký và mọi luật an toàn.
 
 **Đề xuất: Go có điều kiện.**
