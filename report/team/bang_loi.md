@@ -39,7 +39,7 @@ Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định 
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
-Cách phát hiện phải đo được (event, ngưỡng, tần suất). Người phụ trách là một vai trò, không ghi "cả đội".
+Cách phát hiện phải đo được (event, ngưỡng, tần suất). Người phụ trách là một vai trò, ghi rõ một vai trò chịu trách nhiệm.
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
