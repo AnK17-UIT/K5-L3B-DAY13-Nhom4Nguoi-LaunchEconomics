@@ -4,18 +4,18 @@
 
 - Tên nhóm: Nhom4Nguoi
 - Lớp: L3B
-- Repo nhóm: `K5-L3B-DAY13-Nhom4Nguoi-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/AnK17-UIT/K5-L3B-DAY13-Nhom4Nguoi-LaunchEconomics · main; commit chốt tra bằng `git rev-parse HEAD` sau tích hợp.
+- Repo nhóm: `K5-L3B-DAY13-Nhom4Nguoi-LaunchEconomics`
+- URL repo: https://github.com/AnK17-UIT/K5-L3B-DAY13-Nhom4Nguoi-LaunchEconomics
+- Nhánh nộp: `main`; commit chốt: điền sau khi hoàn tất bài
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Nguyễn Hoàng Gia An | 2A202603799 | Chưa xác nhận | AnK17-UIT | Trưởng nhóm; người viết code A/B; đặc tả chỉ số/event |
-|   2 | Chưa xác nhận | Chưa xác nhận | Chưa xác nhận | minh240804 | Nhận bàn giao code; cần xác nhận vai tiếp theo |
-|   3 |        |      |       |        |         |
-|   4 |        |      |       |        |         |
-
+|   1 | Nguyễn Hoàng Gia An | 2A202603799 | 26ai.annhg@vinuni.edu.vn | AnK17-UIT | Trưởng nhóm; người viết code A/B; đặc tả chỉ số/event |
+|   2 | Vũ Quang Minh | 2A202603727 | vuquangminh240804@gmail.com | minh240804 | Người kiểm số |
+|   3 | Hoàng Minh Diệp | 2A202603764 | hoangminhdiepnd2004@gmail.com | diep142 | Người gắn nhãn 1 |
+|   4 | Nguyễn Đức Mạnh | 2A202603731 | manhgu3110@gmail.com | nguyenducmanh-itus | Người gắn nhãn 2, kiêm giữ hồ sơ|
 Bốn vai của lab:
 
 - **Người viết code:** viết và chạy `src/lab13.py`.
@@ -55,4 +55,4 @@ Sao chép mục dưới đây cho từng thành viên.
 
 - Phụ trách A1–A4, B1–B4 trong `src/lab13.py`, bảng chi phí và E1/E2 trong `report/team/chi_so.md`; bổ sung D1 và kiểm tra kế hoạch pilot.
 - Bằng chứng: commit `de4d995`, `18c079a`, `report/evidence/lab13-output.txt` và thông báo bàn giao trong `report/evidence/ban_giao.md`.
-- Chưa ghi nhận nhãn độc lập hoặc kết quả hội đồng; thành viên 3/4 cần tự bổ sung danh tính và đóng góp thực tế.
+- Phần nhãn lỗi do Hoàng Minh Diệp và Nguyễn Đức Mạnh phụ trách; kết quả hội đồng chờ cập nhật từ buổi duyệt chéo.

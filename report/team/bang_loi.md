@@ -48,3 +48,28 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 | ... | Ngữ cảnh | ... | ... | ... |
 | ... | Giới hạn hệ thống | ... | ... | ... |
 | ... | Ngầm | ... | ... | ... |
+
+# Gán nhãn 2
+
+| Ca | Nhãn tham khảo | Lý do ngắn |
+| --: | --- | --- |
+| 1 | Do người dùng | Khách nhập thiếu chữ số tài khoản. |
+| 2 | Hệ thống | Trợ lý dùng sai bảng giá, gây hoàn thiếu. |
+| 3 | Ngữ cảnh | Trợ lý làm theo thiết kế nhưng kỳ vọng của khách khác với cách hoàn tiền. |
+| 4 | Giới hạn hệ thống | Thiếu dữ liệu về chặng của hãng nước ngoài. |
+| 5 | Ngầm | Hoàn thừa tiền nhưng khách và hệ thống đều không phát hiện. |
+| 6 | Do người dùng | Khách chọn nhầm loại yêu cầu. |
+| 7 | Hệ thống | Ghi sổ thất bại nhưng trợ lý vẫn báo đã hoàn tiền. |
+| 8 | Hệ thống | Trợ lý viện dẫn điều khoản không tồn tại. |
+| 9 | Do người dùng | Khách nhập mã đơn sàn thay vì mã vận đơn. |
+| 10 | Ngữ cảnh | Trợ lý áp dụng chính sách đúng nhưng khách thấy không hợp lý với cam kết giao hàng. |
+| 11 | Giới hạn hệ thống | Trợ lý không xử lý được tin nhắn thoại. |
+| 12 | Ngầm | Dữ liệu tool thiếu làm chi phí tăng kéo dài mà không ai nhận ra. |
+| 13 | Giới hạn hệ thống | Yêu cầu bảo hiểm đối tác ngoài phạm vi trợ lý; câu trả lời chung chung cho thấy xử lý giới hạn chưa tốt. |
+| 14 | Do người dùng | Khách bấm nhầm xác nhận đã nhận tiền. |
+| 15 | Hệ thống | Trợ lý tính sai mức hoàn theo chính sách. |
+| 16 | Ngữ cảnh | Trợ lý gửi đúng theo thiết kế nhưng thời điểm gửi không phù hợp với khách. |
+| 17 | Ngầm | Bảng giá cũ gây sai tiền nhiều ngày mà không có cảnh báo hay yêu cầu mở lại. |
+| 18 | Ngữ cảnh | Số tiền đúng nhưng thiếu giải thích khiến khách hiểu nhầm. |
+| 19 | Giới hạn hệ thống | Trợ lý không truy cập được dữ liệu quá 12 tháng và chuyển nhân viên. |
+| 20 | Hệ thống | Thiếu khóa chống trùng khiến trợ lý hoàn tiền hai lần. |
