@@ -56,3 +56,10 @@ Sao chép mục dưới đây cho từng thành viên.
 - Phụ trách A1–A4, B1–B4 trong `src/lab13.py`, bảng chi phí và E1/E2 trong `report/team/chi_so.md`; bổ sung D1 và kiểm tra kế hoạch pilot.
 - Bằng chứng: commit `de4d995`, `18c079a`, `report/evidence/lab13-output.txt` và thông báo bàn giao trong `report/evidence/ban_giao.md`.
 - Phần nhãn lỗi do Hoàng Minh Diệp và Nguyễn Đức Mạnh phụ trách; kết quả hội đồng chờ cập nhật từ buổi duyệt chéo.
+
+## Nguyễn Đức Mạnh — 2A202603731
+
+- Phụ trách: người gắn nhãn 2, kiêm giữ hồ sơ launch v0.
+- Đóng góp: gắn nhãn độc lập 20 ca, đối chiếu và thống nhất 3 ca bất đồng; tổng hợp hồ sơ launch v0, cập nhật pilot, rủi ro kinh tế, đề xuất Go có điều kiện và tạo báo cáo cá nhân.
+- Bằng chứng: `report/team/bang_loi.md`, `report/team/chi_so.md`, `report/team/ho_so_launch_v0.md`, `report/team/2A202603731_NguyenDucManh.md`; commit nhánh `DucManh`.
+- Dùng ChatGPT/Codex để rà cấu trúc, soạn diễn giải và kiểm tra số liệu với bảng nguồn; nhãn cuối và nội dung được đối chiếu với bộ nhãn nhóm.

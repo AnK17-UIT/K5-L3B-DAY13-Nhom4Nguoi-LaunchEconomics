@@ -14,7 +14,7 @@ Tính chi phí theo mọi lần chạy và giờ nhân viên, so với baseline 
 
 ## 3. Giải pháp
 
-A1–A4 và B1–B4 có trong `src/lab13.py`; D1 và E1 cũng tính bằng script. `chi_so.md` gồm 11 event và bảng đối chiếu; `pilot_plan.yaml` là đề xuất 20+20 staff. Mục C chờ hai bộ nhãn độc lập; phiếu chấm chéo chờ hồ sơ nhóm được phân công.
+A1–A4 và B1–B4 có trong `src/lab13.py`; D1 và E1 cũng tính bằng script. `chi_so.md` gồm 11 event và bảng đối chiếu; `pilot_plan.yaml` là đề xuất 20+20 staff. Mục C có 17/20 nhãn trùng (85%), ba bất đồng đã thống nhất và đủ năm dòng khắc phục; phiếu chấm chéo chờ hồ sơ nhóm được phân công.
 
 ## 4. Kết quả
 
@@ -30,7 +30,7 @@ Chi tiết đóng góp của từng thành viên nằm trong `TEAM.md`.
 
 ## 7. Hạn chế và hướng cải thiện
 
-Thời gian nhân viên vẫn simulated, chưa có đối chứng thật; power 0,6417 khi tác động chỉ 5 điểm. Chưa có nhãn độc lập/điểm hội đồng. LMS do Nguyễn Hoàng Gia An tự nộp theo yêu cầu cập nhật.
+Thời gian nhân viên vẫn simulated, chưa có đối chứng thật; power 0,6417 khi tác động chỉ 5 điểm. Chưa có kết quả duyệt chéo/hội đồng. LMS do Nguyễn Hoàng Gia An tự nộp theo yêu cầu cập nhật.
 
 ## 8. Tài liệu tham khảo
 
