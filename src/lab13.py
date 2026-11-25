@@ -101,8 +101,69 @@ def bao_cao_a(runs, reqs):
         print(f"{volume} | {success:,.0f} | {fixed:,.2f} | {m['cps']+fixed:,.2f}")
 
 
+KICH_BAN = {
+    'Giá token gấp đôi': dict(gia_vao=52, gia_ra=260),
+    'Giá token giảm một nửa': dict(gia_vao=13, gia_ra=65),
+    'Tỉ lệ xem lại gấp đôi': dict(he_so_xem_lai=2),
+    'Tỉ lệ xem lại giảm một nửa': dict(he_so_xem_lai=0.5),
+    'Số ca làm lại gấp đôi': dict(he_so_lam_lai=2),
+    'Số ca làm lại giảm một nửa': dict(he_so_lam_lai=0.5),
+    'Lương nhân viên tăng 25%': dict(luong_phut=2500),
+    'Chỉ cho chạy tối đa 2 lần': dict(max_lan_chay=2),
+    'Chỉ cho chạy 1 lần': dict(max_lan_chay=1),
+}
+
+
+def xem_lai_toan_bo(runs, reqs, phut_lam_lai=9, phut_xem_lai=5):
+    """B4: chỉ xem lại các yêu cầu có kết quả ok; giữ mẫu số thành công.
+
+    Giả lập thời gian xem lại toàn bộ, không cộng chồng tiền xem lại cũ.
+    Giá trị 15,3 phút là giả định làm tròn theo hướng dẫn lab.
+    """
+    scope = reqs[reqs.loai.isin(['noi_dia', 'hang_nang'])]
+    scoped_runs = runs[runs.request_id.isin(scope.request_id)]
+    m = mo_hinh(scoped_runs, scope)
+    n_review = scoped_runs.loc[scoped_runs.status.eq('ok'), 'request_id'].nunique()
+    n_rework = int(scope.ket_qua.eq('lam_lai').sum())
+    machine = m['token'] + m['tool']
+    review = n_review * phut_xem_lai * LUONG_PHUT
+    rework = n_rework * phut_lam_lai * LUONG_PHUT
+    tong = machine + review + rework
+    return dict(yeu_cau=len(scope), xem_lai=n_review, lam_lai=n_rework,
+                thanh_cong=m['thanh_cong'], token_tool=machine,
+                tien_xem_lai=review, tien_lam_lai=rework, tong=tong,
+                cps=tong / m['thanh_cong'],
+                hoa_von_phut_xem_lai=(BASELINE * m['thanh_cong'] - machine - rework) / (n_review * LUONG_PHUT))
+
+
+def bao_cao_b(runs, reqs):
+    print('\nB1 · Kịch bản | cps simulated | thay đổi')
+    goc = mo_hinh(runs, reqs)
+    for ten, kw in KICH_BAN.items():
+        m = mo_hinh(runs, reqs, **kw)
+        print(f"{ten} | {m['cps']:,.2f} | {(m['cps']/goc['cps']-1)*100:+.2f}%")
+    cap = mo_hinh(runs, reqs, gia_vao=52, gia_ra=260, he_so_xem_lai=2)
+    print(f"B2 · Token + xem lại gấp đôi: {cap['cps']:,.2f} ({(cap['cps']/goc['cps']-1)*100:+.2f}%) simulated")
+    print('Xếp hạng: số ca làm lại, tỉ lệ xem lại, lương nhân viên.')
+    print('\nB3 · Giới hạn | tổng trợ lý | không thành công | tổng hệ thống | cps (chi phí simulated)')
+    for k in (1, 2, 3):
+        m = mo_hinh(runs, reqs, max_lan_chay=k)
+        fail = len(reqs) - m['thanh_cong']
+        system = m['tong'] + fail * BASELINE
+        print(f"{k} | {m['tong']:,.2f} | {fail} | {system:,.2f} | {m['cps']:,.2f}")
+    print('\nB4 · Xem lại 100% kết quả ok trong noi_dia + hang_nang (simulated)')
+    for minutes in (9, 15.3):
+        m = xem_lai_toan_bo(runs, reqs, phut_lam_lai=minutes)
+        print(f"Làm lại {minutes} phút: {m['xem_lai']} ca xem lại, {m['lam_lai']} ca làm lại, "
+              f"{m['thanh_cong']} thành công; tổng {m['tong']:,.2f}; cps {m['cps']:,.2f} "
+              f"= {m['cps']/BASELINE:.3f}× baseline; hòa vốn xem lại {m['hoa_von_phut_xem_lai']:.2f} phút")
+    rework = reqs.loc[reqs.ket_qua.eq('lam_lai'), 'phut_lam_lai_simulated']
+    print(f'Phút làm lại trung bình trong dữ liệu: {rework.mean():.4f}, trung vị {rework.median():.2f} (simulated)')
+
+
 if __name__ == '__main__':
     data = Path(__file__).resolve().parent
     runs = pd.read_csv(data / 'logix_runs.csv', keep_default_na=False)
     reqs = pd.read_csv(data / 'logix_requests.csv', keep_default_na=False)
     bao_cao_a(runs, reqs)
+    bao_cao_b(runs, reqs)
