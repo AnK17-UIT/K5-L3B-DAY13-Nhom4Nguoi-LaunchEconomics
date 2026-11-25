@@ -4,6 +4,7 @@ Không cần khoá API. Dữ liệu trong hai file CSV là giả lập.
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
 from pathlib import Path
 import pandas as pd
 
@@ -22,7 +23,11 @@ def so_lan_chay_ky_vong(p, k=None):
     k = số lần chạy tối đa; k=None nghĩa là chạy lại đến khi đúng."""
     if not 0 < p <= 1 or (k is not None and (not isinstance(k, int) or k < 1)):
         raise ValueError('Cần 0 < p <= 1 và k nguyên dương hoặc None')
-    return 1 / p if k is None else -math.expm1(k * math.log1p(-p)) / p if p < 1 else 1.0
+    if k is None:
+        return 1 / p
+    if p == 1:
+        return 1.0
+    return -math.expm1(k * math.log1p(-p)) / p
 
 
 def ti_le_thanh_cong(p, k=None):
@@ -161,9 +166,44 @@ def bao_cao_b(runs, reqs):
     print(f'Phút làm lại trung bình trong dữ liệu: {rework.mean():.4f}, trung vị {rework.median():.2f} (simulated)')
 
 
+def co_mau(p1, p2, alpha=0.05, power=0.8):
+    """D1: cỡ mẫu mỗi nhánh với phép thử hai phía, xấp xỉ chuẩn."""
+    za = NormalDist().inv_cdf(1 - alpha / 2)
+    zb = NormalDist().inv_cdf(power)
+    pb = (p1 + p2) / 2
+    return math.ceil((za * math.sqrt(2 * pb * (1 - pb))
+                      + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+
+
+def bao_cao_d_e(runs, reqs):
+    from statsmodels.stats.proportion import proportion_effectsize
+    from statsmodels.stats.power import NormalIndPower
+    n5, n6 = co_mau(.70, .75), co_mau(.70, .76)
+    de75 = 1 + 74 * .02
+    m = math.ceil(n6 * (1 - .02) / (20 - n6 * .02))
+    power5 = NormalIndPower().power(abs(proportion_effectsize(.70, .75)), nobs1=n6, alpha=.05)
+    print('\nD1 · a yêu cầu/nhánh:', n5)
+    print(f'b: DE={de75:.2f}, cần {math.ceil(n5*de75)} yêu cầu/nhánh; '
+          f'{math.ceil(n5*de75/75)} người/nhánh; tổng {2*math.ceil(n5*de75/75)} > 40')
+    print('c: trần 20/.02 = 1000 <', n5)
+    print('d: trần 6/.02 = 300 <', n5)
+    print(f'e: MDE 6 điểm, n={n6}, m={m}, DE={1+(m-1)*.02:.2f}; power ở 5 điểm={power5:.4f}')
+    viewed = reqs[reqs.duoc_xem_lai.eq(1)]
+    primary = (reqs.dong_trong_24h.eq(1) & reqs.mo_lai_trong_7_ngay.eq(0))
+    ignored = viewed.quyet_dinh_xem_lai.isin(['sua', 'bo'])
+    safe = reqs.mo_lai_trong_7_ngay.eq(1)
+    scope = reqs[reqs.loai.isin(['noi_dia', 'hang_nang'])]
+    print(f'\nE1 · Chính: {primary.sum()}/{len(reqs)} = {primary.mean():.2%}')
+    print(f'Dùng: {ignored.sum()}/{len(viewed)} = {ignored.mean():.2%}')
+    print(f'An toàn: {safe.sum()}/{len(reqs)} = {safe.mean():.2%}')
+    print(f'An toàn trong phạm vi: {scope.mo_lai_trong_7_ngay.sum()}/{len(scope)} = {scope.mo_lai_trong_7_ngay.mean():.2%}')
+    print(f'Tỉ lệ làm lại trong phạm vi: {scope.ket_qua.eq("lam_lai").mean():.2%}')
+
+
 if __name__ == '__main__':
     data = Path(__file__).resolve().parent
     runs = pd.read_csv(data / 'logix_runs.csv', keep_default_na=False)
     reqs = pd.read_csv(data / 'logix_requests.csv', keep_default_na=False)
     bao_cao_a(runs, reqs)
     bao_cao_b(runs, reqs)
+    bao_cao_d_e(runs, reqs)
